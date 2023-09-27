@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barriecito&family=Roboto+Mono:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;1,100;1,200;1,300;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://kit.fontawesome.com/ab5ee24f83.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="stylesheet" href="src/style.css" />
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <title>WeatherApp</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="weather-app">
+        <form action="submit" class="search-form" id="search-form">
+          <input
+            id="city-input"
+            type="search"
+            class="form-control"
+            placeholder="Search a city"
+            autofocus="on"
+          />
+          <input type="submit" value="Search" />
+          <button id="current-location-button">Current Location</button>
+        </form>
+        <h1 id="city"></h1>
+        <div class="row">
+          <div class="col-6">
+            <h2 id="date">Friday 15:04</h2>
+            <h2 id="description"></h2>
+            <span class="temperature" id="temperature"> ☀ <br />33 </span>
+            <span class="units">
+              <a href="#" id="celsius-link">°C</a> |
+              <a href="#" id="fahrenheit-link">°F</a>
+            </span>
+          </div>
+          <div class="col-6">
+            <ul>
+              <li>Humidity: <span id="humidity"></span>%</li>
+              <li>Precipitation: 2%</li>
+              <li>Wind: <span id="wind"></span>km/h</li>
+              <li>🌇 Sunrise 05:25</li>
+              <li>🌆 Sunset 18:51</li>
+            </ul>
+          </div>
+        </div>
+        <div class="Forecast row">
+          <div class="col-2">
+            <h5>Saturday</h5>
+            <i class="fa-solid fa-sun"></i><br />18° | 25°
+          </div>
+          <div class="col-2">
+            <h5>Sunday</h5>
+            <i class="fa-solid fa-cloud"></i><br />13° | 20°
+          </div>
+          <div class="col-2">
+            <h5>Monday</h5>
+            <i class="fa-solid fa-cloud-sun"></i><br />16° | 22°
+          </div>
+          <div class="col-2">
+            <h5>Tuesday</h5>
+            <i class="fa-solid fa-cloud-sun"></i><br />17° | 24°
+          </div>
+          <div class="col-2">
+            <h5>Wednesday</h5>
+            <i class="fa-solid fa-cloud-rain"></i><br />11° | 20°
+          </div>
+          <div class="col-2">
+            <h5>Thursday</h5>
+            <i class="fa-solid fa-cloud-sun"></i><br />17° | 24°
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="src/index.js"></script>
+  </body>
+</html>

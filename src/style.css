@@ -1,0 +1,95 @@
+body {
+  font-family: "Roboto Mono", monospace;
+  background-image: url(https://s3.amazonaws.com/shecodesio-production/uploads/files/000/098/008/original/landscape-7264427_1280.png?1695477960);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.weather-app {
+  margin: 50px auto;
+  text-align: center;
+  border: none;
+  border-radius: 20px;
+  box-shadow: 0 30px 50px rgba(79, 65, 120, 0.1);
+}
+
+form {
+  padding: 15px;
+}
+
+.search-form {
+  display: flex;
+  margin: 15px;
+}
+
+.form-control {
+  width: 100%;
+  display: block;
+  padding: 0.375rem 0.75rem;
+}
+
+button {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #ffe168;
+}
+
+input {
+  padding: 10px 20px;
+  border-radius: 10px;
+  font-size: 16px;
+  background: #ffe168;
+}
+
+.col-6 {
+  text-align: left;
+  padding: 0 20px;
+}
+
+input::placeholder {
+  font-weight: bold;
+  color: grey;
+}
+
+h1 {
+  text-align: left;
+  margin: 50px;
+}
+
+h2 {
+  font-weight: normal;
+  font-size: 20px;
+}
+
+.temperature {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+ul {
+  list-style: none;
+  padding: 30px 0;
+  margin: 10px 0;
+}
+
+li {
+  text-align: left;
+  font-size: 20px;
+  margin: 0 auto;
+  padding: 10px;
+  line-height: 1.2;
+}
+
+.forecast-row {
+  padding: 50px;
+  margin: 30px;
+}
+
+.units {
+  font-size: 15px;
+}
+
+a:link {
+  text-decoration: none;
+}
