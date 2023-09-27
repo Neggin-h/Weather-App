@@ -1,6 +1,3 @@
-let apiKey = "e450bc345a80a08ada69fd5c714d871d";
-let apiUrl = "";
-
 function formatDate(date) {
   let hours = date.getHours();
   if (hours < 10) {
