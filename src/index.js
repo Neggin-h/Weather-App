@@ -19,11 +19,12 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-
   return `${day} ${hours}:${minutes}`;
 }
 
 let dateElement = document.querySelector("#date");
+
+let icon = document.querySelector("#icon");
 
 function displayWeatherCondition(response) {
   document.querySelector("#city").innerHTML = response.data.city;
