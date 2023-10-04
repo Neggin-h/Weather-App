@@ -81,6 +81,10 @@ li {
   line-height: 1.2;
 }
 
+li:first-letter {
+  text-transform: capitalize;
+}
+
 .forecast-row {
   padding: 50px;
   margin: 30px;
