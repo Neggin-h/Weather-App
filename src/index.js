@@ -40,6 +40,14 @@ function displayWeatherCondition(response) {
   );
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
+
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/${"response.data.condition.icon"}.png`
+  );
+  iconElement.setAttribute("alt", response.data.condition.description);
+
+  getForecast(response.data.coord);
 }
 
 function searchCity(city) {
