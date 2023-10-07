@@ -24,9 +24,9 @@ function formatDate(timestamp) {
 
 let dateElement = document.querySelector("#date");
 
-let icon = document.querySelector("#icon");
-
 function displayWeatherCondition(response) {
+  celsiusTemperature = response.data.temperature.current;
+
   document.querySelector("#city").innerHTML = response.data.city;
   document.querySelector("#temperature").innerHTML = Math.round(
     response.data.temperature.current
@@ -35,9 +35,7 @@ function displayWeatherCondition(response) {
 
   document.querySelector("#humidity").innerHTML =
     response.data.temperature.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
+  document.querySelector("#wind").innerHTML = Math.round(celsiusTemperature);
   document.querySelector("#description").innerHTML =
     response.data.condition.description;
 
@@ -74,42 +72,39 @@ function getCurrentLocation(event) {
   event.preventDefault();
   navigator.geolocation.getCurrentPosition(searchLocation);
 }
-
-function convertToFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 66;
-}
-
-function convertToCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = 19;
-}
-
-let searchForm = document.querySelector("#search-form");
-searchForm.addEventListener("submit", handleSubmit);
-
-let currentLocationButton = document.querySelector("#current-location-button");
-currentLocationButton.addEventListener("click", getCurrentLocation);
-
-searchCity("Milan");
-
 //Metrics
-function convertToFahrenheit(event) {
+function handleSubmit(event) {
   event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = "☀ </br> ";
+  let cityInputElement = document.querySelector("#city-input");
+  searchCity(cityInputElement.value);
 }
 
-function convertToCelsius(event) {
+function displayFahrenheitTemperature(event) {
   event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = "☀ </br> ";
+  let fahrenheitTemperature = (celsiusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(fahrenheitTemperature);
 }
+
+function displayCelsiusTemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", handleSubmit);
 
 let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", convertToFahrenheit);
+fahrenheitLink.addEventListener("click", displayFahrenheitTemperature);
 
 let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", convertToCelsius);
+celsiusLink.addEventListener("click", displayCelsiusTemperature);
+
+searchCity("Milan");
