@@ -35,11 +35,11 @@ function displayForecast(response) {
         forecastHTML +
         `
          <div class="col-2">
-        <div class="weather-forecast-date">${formatDay(forecastDay.time)}</div>
+        <div class="weather-forecast-date">${formatDate(
+          forecastDay.time * 1000
+        )}</div>
         <img
-          src="http://openweathermap.org/img/wn/${
-            forecastDay.response.data.condition.icon
-          }.png"
+          src="${forecastDay.condition.icon_url}"
           alt=""
           width="42"
         />
@@ -62,7 +62,7 @@ function displayForecast(response) {
 
 function getForecast(coordinates) {
   let apiKey = "1offb792af43d742310308a3bd54tb61";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}`;
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?lat=${coordinates.latitude}&lon=${coordinates.longitude}&key=${apiKey}`;
   axios.get(apiUrl).then(displayForecast);
 }
 
@@ -88,7 +88,7 @@ function displayWeatherCondition(response) {
   );
   iconElement.setAttribute("alt", response.data.condition.description);
 
-  getForecast(response.data.coord);
+  getForecast(response.data.coordinates);
 }
 
 function searchCity(city) {
